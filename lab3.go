@@ -1,11 +1,11 @@
 package main
 
 import (
-	"strconv"
-  "encoding/json"
-  "strings"
-	"github.com/julienschmidt/httprouter"
-	"net/http"
+"net/http"
+"strconv"
+"encoding/json"
+"strings"
+"github.com/julienschmidt/httprouter"
 )
 
 type Response struct{
@@ -34,9 +34,7 @@ func put(rw http.ResponseWriter, req *http.Request, p httprouter.Params){
 
   } else{
       map3[key_int] = value
-
     }
-
 }
 
 func get(rw http.ResponseWriter, req *http.Request, p httprouter.Params){
@@ -94,10 +92,7 @@ func getkeys(rw http.ResponseWriter, req *http.Request, p httprouter.Params){
       key_pair.Value = value
        response = append(response, key_pair)
       }
-
     }
-
-
   	resp, err := json.Marshal(response)
   	if err != nil {
     	 http.Error(rw,"Error " , http.StatusInternalServerError)
